@@ -1,0 +1,70 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  annotations:
+    include.release.openshift.io/ibm-cloud-managed: 'true'
+    include.release.openshift.io/self-managed-high-availability: 'true'
+    include.release.openshift.io/single-node-developer: 'true'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"config.openshift.io/v1","kind":"OAuth","metadata":{"annotations":{},"name":"cluster"},"spec":{"identityProviders":[{"htpasswd":{"fileData":{"name":"htpass-secret"}},"mappingMethod":"claim","name":"developer","type":"HTPasswd"}],"templates":{"login":{"name":"login-template"}},"tokenConfig":{"accessTokenMaxAgeSeconds":0}}}
+    release.openshift.io/create-only: 'true'
+  creationTimestamp: '2022-07-06T12:42:59Z'
+  generation: 2
+  managedFields:
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:include.release.openshift.io/ibm-cloud-managed': {}
+            'f:include.release.openshift.io/self-managed-high-availability': {}
+            'f:include.release.openshift.io/single-node-developer': {}
+            'f:release.openshift.io/create-only': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"f4a1bba6-dcd7-4e62-9e41-d2c8c3f2a401"}': {}
+        'f:spec': {}
+      manager: cluster-version-operator
+      operation: Update
+      time: '2022-07-06T12:42:59Z'
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+        'f:spec':
+          'f:identityProviders': {}
+          'f:templates':
+            .: {}
+            'f:login':
+              .: {}
+              'f:name': {}
+          'f:tokenConfig':
+            .: {}
+            'f:accessTokenMaxAgeSeconds': {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2022-07-07T13:15:21Z'
+  name: cluster
+  ownerReferences:
+    - apiVersion: config.openshift.io/v1
+      kind: ClusterVersion
+      name: version
+      uid: f4a1bba6-dcd7-4e62-9e41-d2c8c3f2a401
+  resourceVersion: '21961'
+  uid: 0bbd4227-435b-4802-a62e-95fcb3236752
+spec:
+  identityProviders:
+    - htpasswd:
+        fileData:
+          name: htpass-secret
+      mappingMethod: claim
+      name: developer
+      type: HTPasswd
+  templates:
+    login:
+      name: login-template
+  tokenConfig:
+    accessTokenMaxAgeSeconds: 0
