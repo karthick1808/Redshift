@@ -6,7 +6,7 @@ spec:
   identityProviders:
   - name: users.htpasswd
     mappingMethod: claim
-    type: HTPPasswd
+    type: HTPasswd
     htpasswd:
         fileData:
           name: htpass-secret
