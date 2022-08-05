@@ -3,4 +3,4 @@ cat users.htpasswd
 htpasswd -B users.htpasswd colombus
 cat users.htpasswd
  
-oc create secret generic htpass-secret —from-file=htpasswd=users.htpasswd  -n openshift-config 
+oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd  -n openshift-config 
