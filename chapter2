@@ -1,1 +1,16 @@
+oc get secret -n openshift-config
+oc extract secret/htpass-secret --to - -n openshift-config > users.htpasswd
+cat users.htpasswd
+===========================================================================
+for users in demi demo2 demo3; do htpasswd -B -b users.htpasswd $users passwd1;
+cat users.htpasswd
+=============
+oc create secret generic htpass-secret --from-file=htpasswd=users.htpasswd --dry-run -o yaml -n openshift-config | oc replace -f -
+oc get identity
+oc get users
+oc login -u user1
+oc login -u system:admin
+====
+oc delete identity users.htpassswd:admin
+===
 
